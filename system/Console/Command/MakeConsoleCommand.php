@@ -28,7 +28,7 @@ class MakeConsoleCommand extends Command
     /**
      * @var string
      */
-    protected $description = 'Create a new Octopy command';
+    protected $description = 'Create a new Console command';
 
     /**
      * @param  Argv   $argv

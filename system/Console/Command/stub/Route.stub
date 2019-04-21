@@ -12,14 +12,4 @@
  * @license : MIT
  */
 
-namespace App\DB\DummyNameSpace;
-
-use Octopy\Database\Model;
-
-class DummyClassName extends Model
-{
-	/**
-	 * @var string
-	 */
-    protected $table = 'DummyTableName';
-}
+return 'SerializedContent';

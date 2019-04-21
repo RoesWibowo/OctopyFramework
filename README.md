@@ -3,17 +3,20 @@
 </p>
 
 <p align="center">
-	<a href="https://packagist.org/packages/supianidz/octopyframework">
-		<img src="https://poser.pugx.org/supianidz/octopyframework/d/total.svg?format=flat-square " alt="Total Downloads">
+	<a href="https://travis-ci.org/SupianIDz/OctopyFramework">
+		<img src="https://travis-ci.org/SupianIDz/OctopyFramework.svg?branch=master" alt="Build Status">
+	</a>
+	<a href="https://github.styleci.io/repos/179120121">
+		<img src="https://github.styleci.io/repos/179120121/shield?branch=master&style=flat" alt="StyleCI">
 	</a>
 	<a href="https://packagist.org/packages/supianidz/octopyframework">
-		<img src="https://poser.pugx.org/supianidz/octopyframework/v/stable.svg?format=flat-square " alt="Latest Stable Version">
+		<img src="https://poser.pugx.org/supianidz/octopyframework/d/total.svg" alt="Total Downloads">
 	</a>
 	<a href="https://packagist.org/packages/supianidz/octopyframework">
-		<img src="https://poser.pugx.org/supianidz/octopyframework/v/unstable.svg?format=flat-square " alt="Latest Unstable Version">
+		<img src="https://poser.pugx.org/supianidz/octopyframework/v/stable.svg" alt="Latest Stable Version">
 	</a>
 	<a href="https://packagist.org/packages/supianidz/octopyframework">
-		<img src="https://poser.pugx.org/supianidz/octopyframework/license.svg?format=flat-square " alt="License">
+		<img src="https://poser.pugx.org/supianidz/octopyframework/license.svg" alt="License">
 	</a>
 </p>
 

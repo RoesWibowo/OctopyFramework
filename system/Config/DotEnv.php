@@ -121,7 +121,7 @@ class DotEnv
     protected function normalise(string $key, string $value = ''): array
     {
         if (strpos($key, '=') !== false) {
-            list($key, $value) = explode('=', $key, 2);
+            [$key, $value] = explode('=', $key, 2);
         }
 
         $key = trim($key);

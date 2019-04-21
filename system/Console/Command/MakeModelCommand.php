@@ -28,7 +28,7 @@ class MakeModelCommand extends Command
     /**
      * @var string
      */
-    protected $description = 'Create a new model class';
+    protected $description = 'Create a new database model class';
 
     /**
      * @param  Argv   $argv

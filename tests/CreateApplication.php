@@ -12,20 +12,22 @@
  * @license : MIT
  */
 
-namespace App\HTTP\Middleware\DummyNameSpace;
+namespace Tests;
 
-use Closure;
-use Octopy\HTTP\Request;
+use Octopy\Container;
+use Octopy\HTTP\Kernel;
 
-class DummyClassName
+trait CreateApplication
 {
     /**
-     * @param  Request $request
-     * @param  Closure $next
-     * @return Request
+     * @return Octopy\Application
      */
-    public function handle(Request $request, Closure $next)
+    public function createApplication()
     {
-        return $next($request);
+        $app = Container::make('app');
+
+        $app->make(Kernel::class);
+
+        return $app;
     }
 }

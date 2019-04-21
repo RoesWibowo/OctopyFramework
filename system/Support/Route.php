@@ -12,20 +12,14 @@
  * @license : MIT
  */
 
-namespace App\HTTP\Middleware\DummyNameSpace;
+namespace Octopy\Support;
 
-use Closure;
-use Octopy\HTTP\Request;
+use Octopy\Support;
 
-class DummyClassName
+class Route extends Support
 {
     /**
-     * @param  Request $request
-     * @param  Closure $next
-     * @return Request
+     * @var string
      */
-    public function handle(Request $request, Closure $next)
-    {
-        return $next($request);
-    }
+    protected static $name = 'route';
 }

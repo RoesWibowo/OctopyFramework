@@ -58,7 +58,7 @@ class Validator
         $this->request = $request;
         foreach ($rules as $attribute => $rule) {
             foreach ($this->parse($rule) as $rule) {
-                list($method, $parameter) = $rule;
+                [$method, $parameter] = $rule;
                 if (! method_exists($this, $method)) {
                     throw new BadMethodCallException(
                         sprintf('Call to undefined method %s::%s(arguments)', __CLASS__, $method)
@@ -118,7 +118,7 @@ class Validator
             if (! strstr($rule, ':')) {
                 $args = [];
             } else {
-                list($rule, $args) = explode(':', $rule);
+                [$rule, $args] = explode(':', $rule);
                 $args = (array) $args;
                 if (strstr($args[0], ',')) {
                     $args = explode(',', $args[0]);

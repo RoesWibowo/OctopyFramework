@@ -12,20 +12,11 @@
  * @license : MIT
  */
 
-namespace App\HTTP\Middleware\DummyNameSpace;
+namespace Tests;
 
-use Closure;
-use Octopy\HTTP\Request;
+use Octopy\Testing\TestCase;
 
-class DummyClassName
+final class OctopyTest extends TestCase
 {
-    /**
-     * @param  Request $request
-     * @param  Closure $next
-     * @return Request
-     */
-    public function handle(Request $request, Closure $next)
-    {
-        return $next($request);
-    }
+    use CreateApplication;
 }
