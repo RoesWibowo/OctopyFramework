@@ -42,10 +42,10 @@ class MakeControllerCommand extends Command
             return $output->warning('Controller already exists.');
         }
         
-        $data = array(
+        $data = [
             'DummyNameSpace' => $parsed['namespace'],
             'DummyClassName' => $parsed['classname'],
-        );
+        ];
         
         if ($this->generate($location, 'Controller', $data)) {
             return $output->success('Controller created successfully.');

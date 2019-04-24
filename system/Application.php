@@ -70,7 +70,7 @@ class Application extends Container
      */
     public function version() : string
     {
-        return 'v0.2-dev';
+        return 'v0.2.2';
     }
 
     /**
@@ -87,7 +87,21 @@ class Application extends Container
      */
     public function basepath(string $subpath = null) : string
     {
-        return preg_replace('/\/+/', '/', $this->basepath . $subpath . DIRECTORY_SEPARATOR);
+        $fullpath = preg_replace('/\/+/', '/', $this->basepath . $subpath);
+        if (! preg_match('/\.(php)/', $subpath)) {
+            $fullpath .= DS;
+        }
+
+        return $fullpath;
+    }
+
+    /**
+     * @param  string $subpath
+     * @return string
+     */
+    public function storage(string $subpath = null) : string
+    {
+        return $this->basepath('storage/' . $subpath);
     }
 
     /**

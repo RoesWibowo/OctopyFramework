@@ -12,6 +12,7 @@ enabled:
   - compact_nullable_typehint
   - concat_with_spaces
   - phpdoc_annotation_without_dot
+  - short_list_syntax
   
 finder:
   exclude:

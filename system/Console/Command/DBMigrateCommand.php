@@ -41,10 +41,10 @@ class DBMigrateCommand extends Command
             /**
              * Single
              */
-            $data = array(
+            $data = [
                 'name'  => $name,
                 'class' => '\\App\\DB\\Migration\\' . $name
-            );
+            ];
 
             if ($argv->get('-r') || $argv->get('--refresh')) {
                 $this->drop($output, $data);
@@ -72,10 +72,10 @@ class DBMigrateCommand extends Command
                 }
 
                 $class = '\\App\\DB\\Migration\\' . ($file = substr($row->getFilename(), 0, -4));
-                $migration[ $class::$timestamp ] = array(
+                $migration[ $class::$timestamp ] = [
                     'name'  => $file,
                     'class' => $class,
-                );
+                ];
             }
 
             if (empty($migration)) {

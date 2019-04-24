@@ -67,7 +67,6 @@ class CLIParser
         CLIParser::TOKEN_COMMENT    => 'yellow',
         CLIParser::TOKEN_DEFAULT    => 'default',
         CLIParser::TOKEN_KEYWORD    => 'red',
-        
         CLIParser::LINE_NUMBER      => 'light_gray',
         CLIParser::ACTUAL_LINE_MARK => 'red',
    ];

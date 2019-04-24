@@ -28,7 +28,7 @@ class MakeModelCommand extends Command
     /**
      * @var string
      */
-    protected $description = 'Create a new model class';
+    protected $description = 'Create a new database model class';
 
     /**
      * @param  Argv   $argv
@@ -46,11 +46,11 @@ class MakeModelCommand extends Command
             $table = strtolower($parsed['classname']);
         }
         
-        $data = array(
+        $data = [
             'DummyTableName' => $table,
             'DummyNameSpace' => $parsed['namespace'],
             'DummyClassName' => $parsed['classname'],
-        );
+        ];
         
         if ($this->generate($location, 'Model', $data)) {
             return $output->success('Model created successfully.');

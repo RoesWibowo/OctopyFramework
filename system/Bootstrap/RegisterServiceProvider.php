@@ -23,14 +23,17 @@ class RegisterServiceProvider
      */
     public function bootstrap(Application $app)
     {
-        $array = $app->config->get('app.provider', []);
+        $array = $app->config->get('app', []);
 
-        usort($array, function ($provider) {
+        usort($array['provider'], function ($provider) {
             return substr($provider, 0, 3) === 'App';
         });
 
-        foreach ($array as $provider) {
+        foreach ($array['provider'] as $provider) {
             $app->register($provider, true);
         }
+
+        // Register class aliases
+        $app['autoload']->aliases($array['aliases'] ?? []);
     }
 }

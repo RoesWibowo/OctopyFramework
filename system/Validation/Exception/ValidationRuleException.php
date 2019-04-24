@@ -12,14 +12,11 @@
  * @license : MIT
  */
 
-namespace Octopy\Support;
+namespace Octopy\Validation\Exception;
 
-use Octopy\Support;
+use BadMethodCallException;
 
-class App extends Support
+class ValidationRuleException extends BadMethodCallException
 {
-    /**
-     * @var string
-     */
-    protected static $name = 'app';
+    //
 }

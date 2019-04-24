@@ -87,8 +87,8 @@ class TableFormatter
             $table .= "\n";
         }
 
-        $this->data   = array();
-        $this->margin = array();
+        $this->data   = [];
+        $this->margin = [];
         $this->margin(
             $this->state = 0
         );

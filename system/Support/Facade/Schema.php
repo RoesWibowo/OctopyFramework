@@ -12,11 +12,11 @@
  * @license : MIT
  */
 
-namespace Octopy\Support;
+namespace Octopy\Support\Facade;
 
-use Octopy\Support;
+use Octopy\Support\Facade;
 
-class Schema extends Support
+class Schema extends Facade
 {
     /**
      * @var string

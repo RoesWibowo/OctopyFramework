@@ -46,12 +46,12 @@ class MakeMigrationCommand extends Command
             $table = strtolower($parsed['classname']);
         }
 
-        $data = array(
+        $data = [
             'DummyTimeStamp' => time(),
             'DummyTableName' => $table,
             'DummyNameSpace' => $parsed['namespace'],
             'DummyClassName' => $parsed['classname'],
-        );
+        ];
         
         if ($this->generate($location, 'Migration', $data)) {
             return $output->success('Migration created successfully.');

@@ -24,6 +24,11 @@ final class Autoload
     /**
      * @var array
      */
+    private $aliases = [];
+
+    /**
+     * @var array
+     */
     private $autoload = [];
 
     /**
@@ -44,10 +49,11 @@ final class Autoload
     }
 
     /**
-     * @param string $namespace
-     * @param string $directory
+     * @param  string $namespace
+     * @param  string $directory
+     * @return void
      */
-    public function set(string $namespace, string $directory)
+    public function set(string $namespace, string $directory) : void
     {
         $this->autoload = array_merge($this->autoload, [
             $namespace => $directory,
@@ -55,11 +61,21 @@ final class Autoload
     }
 
     /**
-     * @param array $classmap
+     * @param  array $classmap
+     * @return void
      */
-    public function classmap(array $classmap)
+    public function classmap(array $classmap) : void
     {
         $this->classmap = array_merge($this->classmap, $classmap);
+    }
+
+    /**
+     * @param  array $aliases
+     * @return void
+     */
+    public function aliases(array $aliases) : void
+    {
+        $this->aliases = array_merge($this->aliases, $aliases);
     }
 
     /**
@@ -76,6 +92,12 @@ final class Autoload
      */
     protected function load(string $class)
     {
+        // Lazy load for class aliases
+        // so they don't hinder performance
+        if (isset($this->aliases[$class])) {
+            return class_alias($this->aliases[$class], $class);
+        }
+
         if (isset($this->classmap[$class]) && file_exists($this->classmap[$class])) {
             return require $this->classmap[$class];
         }

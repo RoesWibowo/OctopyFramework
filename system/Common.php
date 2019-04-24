@@ -12,7 +12,7 @@
  * @license : MIT
  */
 
-use Octopy\Support\App;
+use Octopy\Support\Facade\App;
 
 if (! function_exists('app')) {
     /**

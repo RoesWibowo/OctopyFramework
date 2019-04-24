@@ -42,9 +42,9 @@ class MakeSeederCommand extends Command
             return $output->warning('Seeder already exists.');
         }
         
-        $data = array(
+        $data = [
             'DummyClassName' => $parsed['classname'],
-        );
+        ];
         
         if ($this->generate($location, 'Seeder', $data)) {
             return $output->success('Seeder created successfully.');

@@ -60,11 +60,11 @@ abstract class Command
     {
         preg_match('/(.*)\/(.*)/', trim($string, '/'), $match);
         
-        return array(
+        return [
             'location'  => $string . '.php',
             'classname' => $match[2] ?? $string,
             'namespace' => str_replace('/', '\\', $match[1] ?? null)
-        );
+        ];
     }
 
     /**

@@ -10,7 +10,7 @@
 	</div>
 	<div class="content">
 		<div class="logo">
-			<img src="img/octopy.png" title="Octopy Framework">
+			<img src="img/octopy.svg" title="Octopy Framework">
 		</div>
 		<h2>{{ $app->name() }}</h2>
 		<div class="links">

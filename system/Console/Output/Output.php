@@ -100,9 +100,9 @@ class Output extends Color
         $output .= $this->white(' USAGE : command [options] [args]') . "\n";
 
         // Header
-        $this->table->add(['header'], array(
+        $this->table->add(['header'], [
             'header' => $this->yellow('Available Options')
-        ));
+        ]);
 
         // Command without prefix
         $rows = [];
@@ -124,13 +124,13 @@ class Output extends Color
         }
 
         $this->table->margin(0);
-        $this->table->add(['margin'], array(
+        $this->table->add(['margin'], [
             'margin' => ''
-        ));
+        ]);
         
-        $this->table->add(['header'], array(
+        $this->table->add(['header'], [
             'header' => $this->yellow('Available Commands')
-        ));
+        ]);
 
         $this->table->margin(3);
         foreach ($rows[0] as $command => $row) {
@@ -148,18 +148,18 @@ class Output extends Color
 
                 if (!in_array($prefix, $group)) {
                     $this->table->margin(2);
-                    $this->table->add(['group'], array(
+                    $this->table->add(['group'], [
                         'group' => $this->yellow($prefix),
-                    ));
+                    ]);
 
                     $group[] = $prefix;
                 }
 
                 $this->table->margin(3);
-                $this->table->add(['command', 'description'], array(
+                $this->table->add(['command', 'description'], [
                     'command'     => $this->green($command),
                     'description' => $this->white($row->describe)
-                ));
+                ]);
             }
         }
 

@@ -42,10 +42,10 @@ class MakeMiddlewareCommand extends Command
             return $output->warning('Middleware already exists.');
         }
         
-        $data = array(
+        $data = [
             'DummyNameSpace' => $parsed['namespace'],
             'DummyClassName' => $parsed['classname'],
-        );
+        ];
         
         if ($this->generate($location, 'Middleware', $data)) {
             return $output->success('Middleware created successfully.');

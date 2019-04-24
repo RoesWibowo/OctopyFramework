@@ -28,7 +28,7 @@ class MakeConsoleCommand extends Command
     /**
      * @var string
      */
-    protected $description = 'Create a new Octopy command';
+    protected $description = 'Create a new Console command';
 
     /**
      * @param  Argv   $argv
@@ -42,9 +42,9 @@ class MakeConsoleCommand extends Command
             return $output->warning('Command already exists.');
         }
 
-        $data = array(
+        $data = [
             'DummyClassName' => $parsed['classname'],
-        );
+        ];
         
         if ($this->generate($location, 'Command', $data)) {
             return $output->success('Command created successfully.');

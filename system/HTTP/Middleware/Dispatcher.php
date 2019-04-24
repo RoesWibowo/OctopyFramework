@@ -16,8 +16,8 @@ namespace Octopy\HTTP\Middleware;
 
 use Closure;
 
-use Octopy\Support\App;
 use Octopy\HTTP\Request;
+use Octopy\Support\Facade\App;
 
 class Dispatcher
 {
