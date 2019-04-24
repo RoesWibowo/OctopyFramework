@@ -14,8 +14,8 @@
 
 namespace App\DB\Migration;
 
-use Octopy\Support\Schema;
 use Octopy\Database\Migration;
+use Octopy\Support\Facade\Schema;
 use Octopy\Database\Migration\BluePrint;
 
 class DummyClassName extends Migration
