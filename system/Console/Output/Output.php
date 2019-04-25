@@ -188,24 +188,29 @@ class Output extends Color
             }
         }
 
-        $error = sprintf('  Command "%s" is not defined.  ', $command);
+        $error[] = sprintf('  Command "%s" is not defined.  ', $command);
         
         if (!empty($possible)) {
-            $error .= "\n  Did you mean one of these ?     ";
-
-            $length = 0;
+            $error[] = '';
+            $error[] = '  Did you mean one of these ?';
             foreach ($possible as $value) {
-                $current = strlen("$value   ");
-                if ($current < 34 && $current > $length) {
-                    $length = $current;
-                }
-
-                $error .= "\n      $value     " . str_repeat(' ', $length);
+                $error[] = "      $value";
             }
 
-            $error .= "\n" . str_repeat(' ', 34);
+            $error[] = '';
         }
 
-        return $this->format('{bg_red}{white}' . $error);
+        $length = 0;
+        foreach ($error as $value) {
+            if (strlen($value) > $length) {
+                $length = strlen($value);
+            }
+        }
+
+        foreach ($error as $key => $value) {
+            $error[$key] = $value . str_repeat(' ', $length - strlen($value));
+        }
+
+        return $this->format('{bg_red}{white}' . implode("\n", $error));
     }
 }
