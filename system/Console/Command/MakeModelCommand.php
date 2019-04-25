@@ -14,6 +14,8 @@
 
 namespace Octopy\Console\Command;
 
+use Exception;
+
 use Octopy\Console\Argv;
 use Octopy\Console\Output;
 use Octopy\Console\Command;
@@ -37,7 +39,12 @@ class MakeModelCommand extends Command
      */
     public function handle(Argv $argv, Output $output)
     {
-        $parsed = $this->parse($argv);
+        try {
+            $parsed = $this->parse($argv);
+        } catch (Exception $exception) {
+            return $output->error('Not enough arguments (missing : "name").');
+        }
+        
         if (file_exists($location = $this->app['path']->app->DB($parsed['location']))) {
             return $output->warning('Model already exists.');
         }

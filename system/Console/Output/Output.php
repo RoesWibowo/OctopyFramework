@@ -165,4 +165,47 @@ class Output extends Color
 
         return $output . $this->table->render();
     }
+
+    /**
+     * @param  string $command
+     * @return string
+     */
+    public function undefined(string $command) : string
+    {
+        if (substr($command, 0, 2) === '--') {
+            return $this->error(sprintf('The "%s" option does not exist.', $command));
+        }
+
+        $list = array_filter($this->app['console']->all(), function ($key) {
+            return substr($key, 0, 2) !== '--';
+        }, ARRAY_FILTER_USE_KEY);
+
+        $possible = [];
+
+        foreach ($list as $key => $value) {
+            if (preg_match('/' . str_replace(':', '|', $key) . '/', $command)) {
+                $possible[] = $key;
+            }
+        }
+
+        $error = sprintf('  Command "%s" is not defined.  ', $command);
+        
+        if (!empty($possible)) {
+            $error .= "\n  Did you mean one of these ?     ";
+
+            $length = 0;
+            foreach ($possible as $value) {
+                $current = strlen("$value   ");
+                if ($current < 34 && $current > $length) {
+                    $length = $current;
+                }
+
+                $error .= "\n      $value     " . str_repeat(' ', $length);
+            }
+
+            $error .= "\n" . str_repeat(' ', 34);
+        }
+
+        return $this->format('{bg_red}{white}' . $error);
+    }
 }
